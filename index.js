@@ -1,20 +1,22 @@
 const express     = require('express');
 const app         = express();
+const cors        = require('cors');
 const bodyParser  = require('body-parser');
 const morgan      = require('morgan');
 const mongoose    = require('mongoose');
 
-const jwt    = require('jsonwebtoken'); 
+const jwt    = require('jsonwebtoken');
 const config = require('./config'); 
 const tokenHelper = require('./helpers/tokens');
 
 const UserController = require('./controllers/UserController');
 const AuthController = require('./controllers/AuthController');
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 1993;
 mongoose.connect(config.database);
 app.set('superSecret', config.secret);
 
+app.use(cors())
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

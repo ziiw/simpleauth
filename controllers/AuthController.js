@@ -59,7 +59,8 @@ authRouter.post('/login', function(req, res) {
           res.json({
             success: true,
             message: 'Enjoy your token!',
-            token: token
+            token: token,
+            firstname: user.firstname
           });
         } else {
           res.json({ success: false, message: 'Authentication failed. Wrong password.' });

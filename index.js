@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 // API ROUTES -------------------
 
 // get an instance of the router for api routes
-var apiRoutes = express.Router(); 
+var apiRoutes = express.Router();
 
 // route middleware to verify a token
 apiRoutes.use(function(req, res, next) {
